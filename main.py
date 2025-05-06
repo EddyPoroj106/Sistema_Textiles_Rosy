@@ -2,15 +2,17 @@ import tkinter as tk
 from tkinter import ttk, messagebox
 from inventario_textiles import InventarioTextiles
 from ventas_textiles import VentasTextiles
+from recursos_humanos import RecursosHumanos  # Importamos el nuevo módulo
 
 class TextilesRosy:
     def __init__(self):
         self.root = tk.Tk()
         self.root.title("Sistema Textiles Rosy")
-        self.root.geometry("400x300")
+        self.root.geometry("400x350")  # Aumentamos el tamaño para el nuevo botón
         
         self.modulo_inventario = None
         self.modulo_ventas = None
+        self.modulo_rrhh = None  # Nueva referencia al módulo de RRHH
         
         self.conf_estilo()
         self.conf_gui()
@@ -35,6 +37,8 @@ class TextilesRosy:
                  command=self.abrir_inventario).pack(fill='x', pady=5)
         ttk.Button(btn_frame, text="Módulo de Ventas", 
                  command=self.abrir_ventas).pack(fill='x', pady=5)
+        ttk.Button(btn_frame, text="Módulo de RRHH", 
+                 command=self.abrir_rrhh).pack(fill='x', pady=5)  # Nuevo botón
         ttk.Button(btn_frame, text="Salir", 
                  command=self.cerrar_aplicacion).pack(fill='x', pady=5)
     
@@ -60,6 +64,13 @@ class TextilesRosy:
         else:
             self.modulo_ventas.window.lift()
     
+    def abrir_rrhh(self):
+        """Abre el módulo de Recursos Humanos"""
+        if self.modulo_rrhh is None or not self.modulo_rrhh.window.winfo_exists():
+            self.modulo_rrhh = RecursosHumanos(self.root)
+        else:
+            self.modulo_rrhh.window.lift()
+    
     def ocultar_panel_productos(self):
         """Oculta el panel de productos en el módulo de ventas"""
         if hasattr(self.modulo_ventas, 'productos_frame'):
@@ -73,10 +84,14 @@ class TextilesRosy:
             self.modulo_inventario = None
     
     def cerrar_aplicacion(self):
+        # Cerrar todos los módulos abiertos
         if self.modulo_inventario:
             self.modulo_inventario.cerrar_ventana()
         if self.modulo_ventas:
             self.modulo_ventas.cerrar_ventana()
+        if self.modulo_rrhh:  # Cerrar también el módulo de RRHH si está abierto
+            self.modulo_rrhh.cerrar_ventana()
+        
         self.root.quit()
         self.root.destroy()
     

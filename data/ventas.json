@@ -1,0 +1,20 @@
+[
+    {
+        "id": "f98c184f",
+        "fecha": "2025-05-06T14:10:26.086997",
+        "cliente": {
+            "nombre": "Juan",
+            "nit": "1",
+            "metodo_pago": "Efectivo"
+        },
+        "productos": [
+            {
+                "producto": "De toto",
+                "cantidad": 4,
+                "precio": 400.0,
+                "subtotal": 1600.0
+            }
+        ],
+        "total": 1600.0
+    }
+]

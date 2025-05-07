@@ -1,0 +1,12 @@
+{
+    "admin": {
+        "password": "admin123",
+        "modulos": [
+            "inventario",
+            "ventas",
+            "rrhh",
+            "finanzas"
+        ],
+        "es_admin": true
+    }
+}

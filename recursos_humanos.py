@@ -12,6 +12,7 @@ class RecursosHumanos:
         self.window.title("Recursos Humanos - Textiles Rosy")
         self.window.geometry("1000x700")
         self.window.resizable(True, True)
+        self.callback_nomina = None
         
         # Control para evitar múltiples instancias
         self.window.protocol("WM_DELETE_WINDOW", self.cerrar_ventana)
@@ -756,10 +757,13 @@ Jornada: {empleado.get('jornada', 'N/A')}
             "adelantos": adelantos,
             "prestamos": prestamos,
             "sanciones": sanciones
+        
+        
         })
         
         self.guardar_datos()
         self.actualizar_status(f"Planilla calculada para {self.empleado_planilla['nombre']}")
+        
     
     def generar_recibo(self):
         if not hasattr(self, 'empleado_planilla'):

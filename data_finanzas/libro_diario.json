@@ -1,1 +1,27 @@
-[]
+[
+    {
+        "id": "0abd44cb-cc41-4153-8604-32f2836ac501",
+        "fecha": "2025-05-06T14:10:26.086997",
+        "origen": "venta_f98c184f",
+        "movimientos": [
+            {
+                "cuenta": "1101",
+                "debe": "1600",
+                "haber": "0",
+                "concepto": "Venta f98c184f"
+            },
+            {
+                "cuenta": "4101",
+                "debe": "0",
+                "haber": "1428.571428571428571428571429",
+                "concepto": "Venta de mercader\u00eda"
+            },
+            {
+                "cuenta": "2105",
+                "debe": "0",
+                "haber": "171.4285714285714285714285714",
+                "concepto": "IVA ventas"
+            }
+        ]
+    }
+]

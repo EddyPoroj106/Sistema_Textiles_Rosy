@@ -21,6 +21,8 @@ class VentasTextiles:
         
         # Configuración de archivos
         self.data_dir = "data"
+
+        
         if not os.path.exists(self.data_dir):
             os.makedirs(self.data_dir)
             
